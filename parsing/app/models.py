@@ -5,9 +5,7 @@ User = get_user_model()
 
 
 class Tag(models.Model):
-    """Модель тегов"""
-
-    name = models.CharField("Тег", max_length=200)
+    name = models.CharField(max_length=128)
 
     def __str__(self):
         return self.name
@@ -17,9 +15,9 @@ class News(models.Model):
     """Модель новостей."""
 
     title = models.TextField("Название")
-    pub_date = models.DateField("Дата публикации")
+    pub_date = models.DateTimeField("Дата публикации")
     tag_ext = models.CharField("Тег внешний", max_length=200)
-    tag_int = models.ManyToManyField(Tag, through="TagNews")
+    tags = models.ManyToManyField(Tag, through="TagNews")
 
     def __str__(self):
         return self.title

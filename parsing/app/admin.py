@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News, TagNews, Tag
+from .models import News, Tag
 
 
 @admin.register(News)
@@ -10,6 +10,6 @@ class NewsAdmin(admin.ModelAdmin):
     empty_value_display = "-пусто-"
 
 
-@admin.register(TagNews)
-class TagNewsAdmin(admin.ModelAdmin):
-    list_display = ("id", "tag", "news")
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ("id", "news")
