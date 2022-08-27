@@ -1,5 +1,6 @@
-from .models import News, Tag, TagNews
 from rest_framework import serializers
+
+from .models import News, Tag, TagNews
 
 
 class TagSerializer(serializers.ModelSerializer):
